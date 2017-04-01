@@ -4,13 +4,13 @@
 	<div class="footer-left">
 		<h3>CHILL<span>FLIX</span></h3>
 		<p class="footer-links">
-			<a href="main.html">Home</a>
+			<a href="main.php">Home</a>
 			-
-			<a href="featured.html">Featured</a>
+			<a href="featured.php">Featured</a>
 			-
-			<a href="new_released.html">New Releases</a>
+			<a href="new_released.php">New Releases</a>
 			-
-			<a href="help.html">Help</a>
+			<a href="help.php">Help</a>
 		</p>
 		<p class="footer-company-name">CHILL FLIX &copy; 2016</p>
 	</div>
