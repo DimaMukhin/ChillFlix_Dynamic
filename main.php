@@ -1,3 +1,23 @@
+<?php 
+	require 'phpscripts/databaseConnect.php';
+	require 'phpscripts/commonDatabase.php';
+	
+	function print_movie($id, $name, $poster)
+	{
+		echo
+		"
+		<div class='col-lg-2 col-md-4 col-xs-6'>
+			<div class='thumbnail'>
+				<a href=\"movie.php?id=$id\"><img style='height: 300px; width: 210px;' src=\"$poster\" class='poster_img' alt=\"$name\"></a>
+				<div class='caption' style='padding: 0px;'>
+					<h4 align='center' style='height: 2.2em; line-height: 1.1em; overflow: hidden;'><a href=\"movie.php?id=$id\">$name</a></h4>
+				</div>
+			</div>
+		</div>
+		";
+	}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -18,7 +38,6 @@
 
 
 		<style>
-		
 			.carusel_img {
 				width: 100%;
 				max-height: 500px;
@@ -36,7 +55,6 @@
 			 {
 					display: block;
 			 }
-		
 		</style>
 	
 		<script>
@@ -128,123 +146,52 @@
 				</a>
 			</div> <!-- END CARUSEL -->
 		
-			<!-- Featured -->
-			<a href="featured.html" class="featured_Header"><h1>Featured </h1></a>
-			<div class="row">
-				<div class="col-xs-2">
-					<div class="thumbnail">
-						<a href="movie.html"><img src="res/angry_birds.jpg" class="poster_img" alt="Angry_Birds"></a>
-						<div class="caption">
-							<h4 align="center"><a href="movie.html">Angry Birds</a></h4>
-						</div>
-					</div>
-				</div>
+			<?php				
+				$sql = "SELECT * FROM movies m WHERE EXISTS 
+				(SELECT MId FROM featured f WHERE f.MId = m.Id)
+				LIMIT 6";
+				$movies = execute_query($conn, $sql);
 				
-				<div class="col-xs-2">
-					<div class="thumbnail">
-						<a href="bvs.html"><img src="res/1.jpg" class="poster_img" alt="Angry_Birds"></a>
-						<div class="caption">
-							<h4 align="center"><a href="bvs.html">Bat Vs Sup</a></h4>
-						</div>
-					</div>
-				</div>
+				/*** Featured *******************/
+				echo 
+				'
+					<a href="featured.html" class="featured_Header"><h1>Featured </h1></a>
+					<div class="row">
+				';
 				
-				<div class="col-xs-2">
-					<div class="thumbnail">
-						<a href="sparty.html"><img src="res/2.jpg" class="poster_img" alt="Angry_Birds"></a>
-						<div class="caption">
-							<h4 align="center"><a href="sparty.html">Sausage Party</a></h4>
-						</div>
-					</div>
-				</div>
+				while ($movie = $movies->fetch_assoc())
+				{
+					$name = $movie["Name"];
+					$poster = $movie["Poster"];
+					$id = $movie["Id"];
+					print_movie($id, $name, $poster);
+				}
 				
-				<div class="col-xs-2">
-					<div class="thumbnail">
-						<a href="civilWar.html"><img src="res/3.jpg" class="poster_img" alt="Angry_Birds"></a>
-						<div class="caption">
-							<h4 align="center"><a href="civilWar.html">Civil War</a></h4>
-						</div>
-					</div>
-				</div>
+				echo '</div>';
 				
-				<div class="col-xs-2">
-					<div class="thumbnail">
-						<a href="bfg.html"><img src="res/4.jpg" class="poster_img" alt="Angry_Birds"></a>
-						<div class="caption">
-							<h4 align="center"><a href="bfg.html">BFG</a></h4>
-						</div>
-					</div>
-				</div>
+				$sql = "SELECT * FROM movies ORDER BY AddTimeStamp DESC LIMIT 6";
+				$movies = execute_query($conn, $sql);
 				
-				<div class="col-xs-2">
-					<div class="thumbnail">
-						<a href="nonStop.html"><img src="res/5.jpg" class="poster_img" alt="Angry_Birds"></a>
-						<div class="caption">
-							<h4 align="center"><a href="nonStop.html">Non-Stop</a></h4>
-						</div>
-					</div>
-				</div>
-			</div> 
-			
-			<!-- New Releases -->
-			<a href="new_released.html" class="newReleased_Header"><h1>New Releases</h1></a>
-			<div class="row">
-				<div class="col-xs-2">
-					<div class="thumbnail">
-						<a href="singStreet.html"><img src="res/6.jpg" class="poster_img" alt="Angry_Birds"></a>
-						<div class="caption">
-							<h4 align="center"><a href="singStreet.html">Sing Street</a></h4>
-						</div>
-					</div>
-				</div>
+				/*** New Releases *************************/
+				echo
+				'
+					<a href="new_released.html" class="newReleased_Header"><h1>New Releases</h1></a>
+					<div class="row">
+				';
 				
-				<div class="col-xs-2">
-					<div class="thumbnail">
-						<a href="collector.html"><img src="res/7.jpg" class="poster_img" alt="Angry_Birds"></a>
-						<div class="caption">
-							<h4 align="center"><a href="collector.html">Collector</a></h4>
-						</div>
-					</div>
-				</div>
+				while ($movie = $movies->fetch_assoc())
+				{
+					$name = $movie["Name"];
+					$poster = $movie["Poster"];
+					$id = $movie["Id"];
+					print_movie($id, $name, $poster);
+				}
 				
-				<div class="col-xs-2">
-					<div class="thumbnail">
-						<a href="littleMen.html"><img src="res/8.jpg" class="poster_img" alt="Angry_Birds"></a>
-						<div class="caption">
-							<h4 align="center"><a href="littleMen.html">Little Men</a></h4>
-						</div>
-					</div>
-				</div>
-				
-				<div class="col-xs-2">
-					<div class="thumbnail">
-						<a href="kubo.html"><img src="res/9.jpg" class="poster_img" alt="Angry_Birds"></a>
-						<div class="caption">
-							<h4 align="center"><a href="kubo.html">KUBO</a></h4>
-						</div>
-					</div>
-				</div>
-				
-				<div class="col-xs-2">
-					<div class="thumbnail">
-						<a href="keanu.html"><img src="res/10.jpg" class="poster_img" alt="Angry_Birds"></a>
-						<div class="caption">
-							<h4 align="center"><a href="keanu.html">Keanu</a></h4>
-						</div>
-					</div>
-				</div>
-				
-				<div class="col-xs-2">
-					<div class="thumbnail">
-						<a href="13hours.html"><img src="res/11.jpg" class="poster_img" alt="Angry_Birds"></a>
-						<div class="caption">
-							<h4 align="center"><a href="13hours.html">13 Hours</a></h4>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+				echo '</div>';
+			?>
+		</div> <!-- container -->
 		
+		<!-- footer -->
 		<?php require 'footer.php'?>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
