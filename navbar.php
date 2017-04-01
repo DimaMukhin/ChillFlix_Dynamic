@@ -9,31 +9,31 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="main.html"><i class="fa fa-home" aria-hidden="true"></i>Home</a>
+			<a class="navbar-brand" href="main.php"><i class="fa fa-home" aria-hidden="true"></i>Home</a>
 		</div>
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<li><a href="featured.html">Featured <span class="sr-only">(current)</span></a></li>
+				<li><a href="featured.php">Featured <span class="sr-only">(current)</span></a></li>
 				
-				<li><a href="new_released.html">New Releases</a></li>                       
+				<li><a href="new_released.php">New Releases</a></li>                       
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Years <span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="2016.html">2016</a></li>
-						<li><a href="2015.html">2015</a></li>
-						<li><a href="2014.html">2014</a></li>
+						<li><a href="2016.php">2016</a></li>
+						<li><a href="2015.php">2015</a></li>
+						<li><a href="2014.php">2014</a></li>
 					</ul>
 				</li>
 				<!-- Categories drop-down -->
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="Action.html">Action</a></li>					
-						<li><a href="Adventure.html">Adventure</a></li>
-						<li><a href="Family.html">Family</a></li>
-						<li><a href="Comedy.html">Comedy</a></li>
+						<li><a href="Action.php">Action</a></li>					
+						<li><a href="Adventure.php">Adventure</a></li>
+						<li><a href="Family.php">Family</a></li>
+						<li><a href="Comedy.php">Comedy</a></li>
 					</ul>
 				</li>
 				
@@ -81,8 +81,8 @@
 			
 			<!-- Right side of the Nav bar -->
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="help.html"><i class="fa fa-info-circle" style="margin-right: 5px;"></i>Help</a></li>
-				<li><a href="../index.html"><i class="fa fa-sign-out" style="margin-right: 5px;"></i>Log-out</a></li>
+				<li><a href="help.php"><i class="fa fa-info-circle" style="margin-right: 5px;"></i>Help</a></li>
+				<li><a href="index.php"><i class="fa fa-sign-out" style="margin-right: 5px;"></i>Log-out</a></li>
 			</ul>
 		</div><!-- /.navbar-collapse -->
 	</div><!-- /.container-fluid -->
