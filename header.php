@@ -2,7 +2,7 @@
 <header class="row">
 
 	<!-- Logo -->
-	<a href="main.html"><img src="res/ChillFlix_logo.png" class="col-xs-4 img-responsive"/></a>
+	<a href="main.php"><img src="res/ChillFlix_logo.png" class="col-xs-4 img-responsive"/></a>
 	
 	<!-- search bar -->
 	<form class="form-inline col-xs-4" style="margin-top: 5%">
